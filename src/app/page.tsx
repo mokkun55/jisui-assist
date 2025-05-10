@@ -28,7 +28,7 @@ export default function Home() {
               {!user ? (
                 <LinkButton label="ログイン" url="/login" />
               ) : (
-                <LinkButton label="ログアウト" url="/login" />
+                <LinkButton label="ログイン情報" url="/login" />
               )}
             </>
           )}
