@@ -6,16 +6,24 @@ import { BaseButton } from "../baseButton";
 type Props = {
   label: string;
   disabled?: boolean;
-  url: string;
+  url: string | "back";
+  className?: string;
 };
 
-export const LinkButton = ({ label, disabled, url }: Props) => {
+export const LinkButton = ({ label, disabled, url, className }: Props) => {
   const router = useRouter();
   return (
     <BaseButton
       label={label}
       disabled={disabled}
-      onClick={() => router.push(url)}
+      onClick={() => {
+        if (url === "back") {
+          router.back();
+        } else {
+          router.push(url);
+        }
+      }}
+      className={className}
     />
   );
 };
