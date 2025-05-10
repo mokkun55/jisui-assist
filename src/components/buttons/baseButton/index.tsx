@@ -3,6 +3,7 @@ type Props = {
   onClick?: () => void;
   disabled?: boolean;
   type?: "button" | "submit";
+  className?: string;
 };
 
 export const BaseButton = ({
@@ -10,6 +11,7 @@ export const BaseButton = ({
   onClick,
   disabled,
   type = "button",
+  className,
 }: Props) => {
   return (
     <button
@@ -21,7 +23,7 @@ export const BaseButton = ({
           disabled
             ? "opacity-50 cursor-not-allowed"
             : "hover:bg-orange-500 cursor-pointer"
-        }`}
+        } ${className}`}
     >
       {label}
     </button>
