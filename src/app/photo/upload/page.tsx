@@ -76,7 +76,12 @@ export default function PhotoUploadPage() {
         </div>
 
         <div className="flex gap-4 justify-between">
-          <LinkButton label="戻る" url="back" className="w-[100px]" />
+          <LinkButton
+            label="戻る"
+            url="back"
+            className="w-[100px]"
+            variant="gray"
+          />
           <BaseButton label="保存" className="w-[100px]" />
         </div>
       </form>
