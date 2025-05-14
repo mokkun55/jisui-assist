@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { LinkButton } from "~/components/buttons/linkButton";
+import { Header } from "~/components/layouts/header";
 // モックデータ
 const mockPhotos = [
   {
@@ -21,11 +22,15 @@ const mockPhotos = [
 
 export default function PhotoPage() {
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-2xl font-bold">ご飯記録</h1>
-        <LinkButton label="写真を追加" url="/photo/upload" />
-      </div>
+    <div className="container mx-auto px-4">
+      <Header title="ご飯の記録" url="/" />
+
+      {/* 追加ボタン */}
+      <LinkButton
+        label="写真を追加する"
+        url="/photo/upload"
+        className="w-full my-4"
+      />
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {mockPhotos.map((photo) => (

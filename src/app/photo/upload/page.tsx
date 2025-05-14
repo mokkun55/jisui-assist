@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { BaseButton } from "~/components/buttons/baseButton";
 import { LinkButton } from "~/components/buttons/linkButton";
-
+import { Header } from "~/components/layouts/header";
 export default function PhotoUploadPage() {
   const router = useRouter();
   const [memo, setMemo] = useState("");
@@ -27,10 +27,10 @@ export default function PhotoUploadPage() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-2xl font-bold mb-8">写真を追加</h1>
+    <div className="container mx-auto px-4">
+      <Header title="写真を追加" url="/photo" />
 
-      <form onSubmit={handleSubmit} className="max-w-lg">
+      <form onSubmit={handleSubmit} className="max-w-lg mt-4">
         <div className="mb-6">
           <label
             htmlFor="photo"
