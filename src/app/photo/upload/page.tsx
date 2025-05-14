@@ -10,6 +10,7 @@ export default function PhotoUploadPage() {
   const router = useRouter();
   const [memo, setMemo] = useState("");
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const [amount, setAmount] = useState<number | "">("");
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -36,7 +37,7 @@ export default function PhotoUploadPage() {
             htmlFor="photo"
             className="block text-gray-700 text-sm font-bold mb-2"
           >
-            写真
+            写真<span className="text-red-500 ml-1">*</span>
           </label>
           <input
             id="photo"
@@ -47,7 +48,7 @@ export default function PhotoUploadPage() {
             required
           />
           {previewUrl && (
-            <div className="mt-4 relative h-48">
+            <div className="mt-4 relative h-[300px]">
               <Image
                 src={previewUrl}
                 alt="Preview"
@@ -73,6 +74,27 @@ export default function PhotoUploadPage() {
             rows={4}
             placeholder="メモを入力してください"
           />
+        </div>
+
+        <div className="mb-6">
+          <label
+            htmlFor="amount"
+            className="block text-gray-700 text-sm font-bold mb-2"
+          >
+            金額
+          </label>
+          <input
+            id="amount"
+            type="number"
+            value={amount}
+            onChange={(e) =>
+              setAmount(e.target.value === "" ? "" : Number(e.target.value))
+            }
+            className="w-full p-2 border rounded pr-8"
+            placeholder="金額を入力してください"
+            min="0"
+          />
+          <span className="relative -ml-6 text-gray-500">円</span>
         </div>
 
         <div className="flex gap-4 justify-between">
