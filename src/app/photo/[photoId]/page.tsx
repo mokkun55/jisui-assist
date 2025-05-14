@@ -1,7 +1,5 @@
-"use client";
-
-import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { Header } from "~/components/layouts/header";
 
 // モックデータ
 const mockPhoto = {
@@ -11,26 +9,16 @@ const mockPhoto = {
   createdAt: "2024-03-20T12:00:00Z",
 };
 
-export default function PhotoDetailPage({
+export default async function PhotoDetailPage({
   params,
 }: {
   params: { photoId: string };
 }) {
-  const router = useRouter();
-
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="max-w-2xl mx-auto">
-        <div className="mb-8">
-          <button
-            type="button"
-            onClick={() => router.back()}
-            className="text-blue-500 hover:text-blue-600"
-          >
-            ← 戻る
-          </button>
-        </div>
-
+    <div className="container mx-auto px-4">
+      <Header title="XX日の夕飯" url="/photo" />
+      <div className="max-w-2xl mx-auto mt-4">
+        <p>画像ID: {params.photoId}</p>
         <div className="bg-white rounded-lg shadow-md overflow-hidden">
           <div className="relative h-96">
             <Image
